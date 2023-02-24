@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Juros</title>
+    <link rel="stylesheet" href="/Users/Willian/Downloads/Curso Web Designer/simulador_juros/css/css_simulador_juros.css">
+</head>
+<body>
+    <h1>Simulador de Juros</h1>
+    
+    <span>Selecione a forma do juros:</span>
+    <select id="formajurosid">
+        <option value="0">Simples</option>
+        <option value="1">Composto</option>
+    </select>
+    <br><br>
+    <span>Defina o tipo da taxa de juros:</span>
+    <select id="tipojurosid">
+        <option value="3">A.D.</option>
+        <option value="4">A.M.</option>
+        <option value="5">A.A.</option>
+    </select>
+    <br><br>
+    <fieldset>
+        <legend>Preencha os campos</legend>
+        <span>Capital (C):</span>
+        <br>
+        <label>R$</label>
+        <input type="number" value="0.00" step=".01" id="capital" name="capital" placeholder="0,00" onclick="selecionacapital()">
+        <br>
+        <span>Taxa de Juros (i):</span>
+        <br>
+        <label>%</label>
+        <input type="number" value="0.00" step=".01" id="taxajuros" name="taxajuros" placeholder="0,00" onclick="selecionataxa()">
+        <br>
+        <span>Multa:</span>
+        <br>
+        <label>R$</label>
+        <input type="number" value="0.00" step=".01" id="multa" name="multa" placeholder="0,00" onclick="selecionamulta()">
+        <br>
+        <span>Prazo (t):</span>
+        <br>
+        <input type="number" value="0" step=".01" id="prazo" name="prazo" placeholder="0,00" onclick="selecionaprazo()">
+        <br>
+        <span>carência:</span>
+        <br>
+        <input type="number" value="0" id="carencia" name="carencia" placeholder="0" onclick="selecionacarencia()">
+    </fieldset>
+    <br>
+    <button onclick="resultado()">Calcular</button>
+    <button onclick="limpar()">Limpar</button>
+    <br><br>
+    <fieldset>
+        <legend>Resultado</legend>
+        <span>Capital</span>
+        <div id="divcapital">0,00</div>
+        <span>Juros</span>
+        <div id="divjuros">0,00</div>
+        <span>Multa</span>
+        <div id="divmulta">0,00</div>
+        <span>Total</span>
+        <div id="divresultado">0,00</div>
+    </fieldset>
+    <script>
+
+        function limpar(){
+
+        }
+        
+        function selecionacapital(){
+            document.getElementById("capital").select(); //seleciona todo o value do input
+        }
+        function selecionataxa(){
+            document.getElementById("taxajuros").select();
+        }
+        function selecionaprazo(){
+            document.getElementById("prazo").select();
+        }
+        function selecionamulta(){
+            document.getElementById("multa").select();
+        }
+        function selecionacarencia(){
+            document.getElementById("carencia").select();
+        }
+
+        var taxajuros = parseFloat((document.getElementById('taxajuros')).value);
+        //var prazo = parseFloat((document.getElementById('prazo')).value);
+        var carencia = parseFloat((document.getElementById('carencia')).value);
+
+        function inserircapital(c) {
+            return capital.value;
+        }
+
+        function inserirmulta(m){
+            if(multa.value === ""){
+                return 0;
+            }else return parseFloat(multa.value);
+        }
+
+        function resultado() {
+            //valores diretos
+            var capital = parseFloat((document.getElementById("capital")).value);
+            console.log(capital);
+            
+            document.querySelector('#divcapital').innerHTML = parseFloat(inserircapital(capital.value));
+            console.log(parseFloat(inserircapital(capital.value)));
+
+            var multa = parseFloat((document.getElementById("multa")).value);
+            console.log(parseFloat((document.getElementById("multa")).value));
+
+            document.querySelector('#divmulta').innerHTML = inserirmulta(multa.value);
+            console.log(parseFloat(inserirmulta(multa)));
+
+            inserirjuros(capital, prazo, taxajuros, multa);
+            calcularresultado(capital, prazo, taxajuros, multa);
+            
+        }
+            //valores que precisam ser calculados
+
+            function inserirjuros(capital, prazo, taxajuros, multa){
+                var capital = parseFloat((document.getElementById("capital")).value);
+                var prazo = parseFloat((document.getElementById("prazo")).value);
+                var taxajuros = parseFloat((document.getElementById("taxajuros")).value);
+                var multa = parseFloat((document.getElementById("multa")).value);
+                var carencia = parseFloat((document.getElementById("carencia")).value);
+                console.log(multa);
+
+                var formajuros = document.getElementById("formajurosid");
+                var fjuros = parseFloat(formajuros.value);
+
+                var tipojuros = document.getElementById("tipojurosid");
+                var tjuros = parseFloat(tipojuros.value);
+                
+                var tipotaxajuros;
+                var montante;
+
+                if(fjuros === 0){
+                
+                    if(tjuros === 3){
+                        //var resultadotaxajurosad = parseFloat;
+                        tipotaxajuros = (capital * (taxajuros/100));
+                        console.log(tipotaxajuros);
+                        document.querySelector('#divjuros').innerHTML = tipotaxajuros.toFixed(2);
+                        console.log(document.querySelector('#divjuros').innerHTML = tipotaxajuros);
+                    }else if(tjuros === 4){
+                        //var resultadotaxajurosam = parseFloat;
+                        tipotaxajuros = (capital * ((taxajuros/100) /30 ));
+                        console.log(tipotaxajuros);
+                        document.querySelector('#divjuros').innerHTML = tipotaxajuros.toFixed(2);
+                        console.log(document.querySelector('#divjuros').innerHTML = tipotaxajuros);
+                    }else if(tjuros === 5){
+                        //var resultadotaxajurosaa = parseFloat;
+                        tipotaxajuros = (capital * ((taxajuros/100) /360 ));
+                        console.log(tipotaxajuros);
+                        document.querySelector('#divjuros').innerHTML = tipotaxajuros.toFixed(2);
+                        console.log(document.querySelector('#divjuros').innerHTML = tipotaxajuros);
+                    }
+                    return tipotaxajuros
+                }else if(fjuros === 1){
+                    if(tjuros === 3){
+                        taxajuroscomposto = (1 + (taxajuros/100));
+                        tipotaxajuros = (taxajuroscomposto ** (prazo - carencia));
+                        document.querySelector('#divjuros').innerHTML = tipotaxajuros.toFixed(2);
+
+                    }else if(tjuros === 4){
+                        taxajuroscomposto = (1 + ((taxajuros/100) /30 ));
+                        tipotaxajuros = (taxajuroscomposto ** (prazo - carencia));
+                        document.querySelector('#divjuros').innerHTML = tipotaxajuros.toFixed(2);
+                    }else if(tjuros === 5){
+                        taxajuroscomposto = (1 + ((taxajuros/100) /360 ));
+                        tipotaxajuros = (taxajuroscomposto ** (prazo - carencia));
+                        document.querySelector('#divjuros').innerHTML = tipotaxajuros.toFixed(2);
+                    }
+                    return tipotaxajuros;
+                }
+            }
+
+            function calcularresultado(capital, prazo, taxajuros, multa){
+                var formajuros = document.getElementById("formajurosid");
+                var fjuros = parseFloat(formajuros.value);
+                console.log(fjuros);
+
+                var tipojuros = document.getElementById("tipojurosid");
+                var tjuros = parseFloat(tipojuros.value);
+                console.log(tjuros);
+
+                var capital = parseFloat((document.getElementById("capital")).value);
+                var tipotaxajuros = inserirjuros(capital, prazo, taxajuros, multa);
+                var prazo = parseFloat((document.getElementById("prazo")).value);
+                var multa = parseFloat((document.getElementById("multa")).value);
+                var carencia = parseFloat((document.getElementById("carencia")).value);
+                var calcularesultado = parseFloat;
+
+                if(fjuros === 0){
+                    calcularesultado = (capital + ((tipotaxajuros * (prazo - carencia)) + multa));
+                    console.log(calcularesultado);
+                    document.querySelector('#divresultado').innerHTML = calcularesultado.toFixed(2);
+                }else if(fjuros === 1){
+                    calcularesultado = ((capital * tipotaxajuros) + multa);
+                    console.log(tipotaxajuros);
+                    console.log(calcularesultado);
+                    document.querySelector('#divresultado').innerHTML = calcularesultado.toFixed(2);
+                }
+
+            }
+        
+    </script>
+</body>
+</html>
