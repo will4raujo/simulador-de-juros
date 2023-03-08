@@ -1,22 +1,12 @@
 function limpar(){
 
 }
+/*const selecionacapital = document.getElementById('capital').select();
+const selecionataxa = document.getElementById("taxajuros").select();
+const selecionaprazo = document.getElementById("prazo").select();
+const selecionamulta = document.getElementById('multa').select();
+const selecionacarencia = document.getElementById('carencia').select();*/
 
-function selecionacapital(){
-    document.getElementById("capital").select(); //seleciona todo o value do input
-}
-function selecionataxa(){
-    document.getElementById("taxajuros").select();
-}
-function selecionaprazo(){
-    document.getElementById("prazo").select();
-}
-function selecionamulta(){
-    document.getElementById("multa").select();
-}
-function selecionacarencia(){
-    document.getElementById("carencia").select();
-}
 
 var taxajuros = parseFloat((document.getElementById('taxajuros')).value);
 //var prazo = parseFloat((document.getElementById('prazo')).value);
@@ -35,16 +25,10 @@ function inserirmulta(m){
 function resultado() {
     //valores diretos
     var capital = parseFloat((document.getElementById("capital")).value);
-    console.log(capital);
-    
     document.querySelector('#divcapital').innerHTML = parseFloat(inserircapital(capital.value));
-    console.log(parseFloat(inserircapital(capital.value)));
-
+    
     var multa = parseFloat((document.getElementById("multa")).value);
-    console.log(parseFloat((document.getElementById("multa")).value));
-
     document.querySelector('#divmulta').innerHTML = inserirmulta(multa.value);
-    console.log(parseFloat(inserirmulta(multa)));
 
     inserirjuros(capital, prazo, taxajuros, multa);
     calcularresultado(capital, prazo, taxajuros, multa);

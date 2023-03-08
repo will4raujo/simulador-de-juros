@@ -5,22 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador de Juros</title>
-    <link rel="stylesheet" href="/Users/Willian/Downloads/Curso Web Designer/simulador_juros/css/css_simulador_juros.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>Simulador de Juros</h1>
     
-    <span>Selecione a forma do juros:</span>
-    <select id="formajurosid">
-        <option value="0">Simples</option>
-        <option value="1">Composto</option>
+    <span>Selecione o tipo do juros:</span>
+    <select id="tipo-juros">
+        <option value="simples">Simples</option>
+        <option value="composto">Composto</option>
     </select>
     <br><br>
     <span>Defina o tipo da taxa de juros:</span>
-    <select id="tipojurosid">
-        <option value="3">A.D.</option>
-        <option value="4">A.M.</option>
-        <option value="5">A.A.</option>
+    <select id="opcoes-taxas">
+        <option value="ad">Ao Dia</option>
+        <option value="am">Ao Mês.</option>
+        <option value="aa">Ao Ano</option>
     </select>
     <br><br>
     <fieldset>
@@ -28,42 +28,41 @@
         <span>Capital (C):</span>
         <br>
         <label>R$</label>
-        <input type="number" value="0.00" step=".01" id="capital" name="capital" placeholder="0,00" onclick="selecionacapital()">
+        <input type="number" value="0" step=".01" id="capital" name="capital" placeholder="0,00">
         <br>
         <span>Taxa de Juros (i):</span>
         <br>
         <label>%</label>
-        <input type="number" value="0.00" step=".01" id="taxajuros" name="taxajuros" placeholder="0,00" onclick="selecionataxa()">
+        <input type="number" value="0.00" step=".01" id="taxajuros" name="taxajuros" placeholder="0,00">
         <br>
         <span>Multa:</span>
         <br>
         <label>R$</label>
-        <input type="number" value="0.00" step=".01" id="multa" name="multa" placeholder="0,00" onclick="selecionamulta()">
+        <input type="number" value="0.00" step=".01" id="multa" name="multa" placeholder="0,00">
         <br>
         <span>Prazo (t):</span>
         <br>
-        <input type="number" value="0" step=".01" id="prazo" name="prazo" placeholder="0,00" onclick="selecionaprazo()">
+        <input type="number" value="0" step=".01" id="prazo" name="prazo" placeholder="0,00">
         <br>
         <span>carência:</span>
         <br>
-        <input type="number" value="0" id="carencia" name="carencia" placeholder="0" onclick="selecionacarencia()">
+        <input type="number" value="0" id="carencia" name="carencia" placeholder="0">
     </fieldset>
     <br>
-    <button onclick="resultado()">Calcular</button>
-    <button onclick="limpar()">Limpar</button>
+    <button id="btn-calcular">Calcular</button>
+    <button id="btn-limpar">Limpar</button>
     <br><br>
     <fieldset>
         <legend>Resultado</legend>
-        <span>Capital</span>
-        <div id="divcapital">0,00</div>
+        <span>Capital Inicial</span>
+        <div id="resultado-capital" data-resultado="capital">0,00</div>
         <span>Juros</span>
-        <div id="divjuros">0,00</div>
+        <div id="resultado-juros" data-resultado="juros">0,00</div>
         <span>Multa</span>
-        <div id="divmulta">0,00</div>
+        <div id="resultado-multa" data-resultado="multa">0,00</div>
         <span>Total</span>
-        <div id="divresultado">0,00</div>
+        <div id="resultado-total" data-resultado="total">0,00</div>
     </fieldset>
-    <script src="js/app.js">
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
