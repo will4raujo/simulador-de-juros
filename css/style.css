@@ -1,0 +1,61 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');*/
+
+:root {
+    --font-family: 'Montserrat', sans-serif;
+    --bg-color: #F1EEE9;
+    --primary-color: #15133C ;
+}
+
+body{
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  font-family: var(--font-family);
+}
+
+h1{
+    text-transform: uppercase;
+}
+fieldset{
+    border: gray solid 1px;
+    border-radius: 5px;
+    width: auto;
+}
+select{
+    border-radius: 5px;
+    text-transform: uppercase;
+    border: solid 1px gray;
+}
+
+input[type=number]{
+    border-radius: 5px;
+    border: solid 1px gray;
+    padding: 2px;
+    margin: 2px;
+    width: 50px;
+    text-align: right;
+}
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+#carencia{
+    width: 30px;
+}
+#prazo{
+    width: 30px;
+}
+
+button{
+    border-radius: 5px;
+    text-transform: uppercase;
+    padding: 5px;
+    display: inline-block;
+    margin: 0px 15px;
+}
+
+label{
+    border: solid gray 1px;
+    border-radius: 5px;
+    background-color: black;
+    margin: 0;
+}
