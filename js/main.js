@@ -1,16 +1,20 @@
-const tipoJuros = document.getElementById('tipo-juros');
-const opcoesTaxas = document.getElementById('opcoes-taxas');
-
-let resultadoCapital = document.getElementById('resultado-capital');
-let resultadoMulta = document.getElementById('resultado-multa');
-let resultadoJuros = document.getElementById('resultado-juros');
+let resultadoCapital = '';
+let resultadoJuros = '';
+let resultadoMulta = '';
+let resultadoTotal = '';
+let valorResultadoTotal = '';
 
 const btnCalcular = document.getElementById('btn-calcular');
-const btnLimpar = document.getElementById('btn-limpar');
-
-const resultado = document.querySelectorAll('[data-resultado]');
 
 btnCalcular.addEventListener('click', () => {
+
+    const tipoJuros = document.getElementById('tipo-juros');
+    const opcoesTaxas = document.getElementById('opcoes-taxas');
+
+    resultadoCapital = document.getElementById('resultado-capital');
+    resultadoMulta = document.getElementById('resultado-multa');
+    resultadoJuros = document.getElementById('resultado-juros');
+
     let inpCapital = parseFloat(document.getElementById('capital').value);
     resultadoCapital.innerHTML = `R$ ${(inpCapital).toFixed(2)}`;
 
@@ -43,11 +47,27 @@ btnCalcular.addEventListener('click', () => {
             resultadoJuros.innerHTML = `R$ ${ (( 1 + (multiplicacaoCapitalXJuros / 360 )) * prazoMenosCarencia).toFixed(2)}`;
         }
     }
+    
     resultadoCapital = (parseFloat(resultadoCapital.textContent.slice(3)));
     resultadoJuros = (parseFloat(resultadoJuros.textContent.slice(3)));
     resultadoMulta = (parseFloat(resultadoMulta.textContent.slice(3)));
     
-    let resultadoTotal = document.getElementById('resultado-total');
-    let valorResultadoTotal = (resultadoCapital + resultadoJuros + resultadoMulta).toFixed(2);
-    resultadoTotal.innerHTML = `R$ ${ valorResultadoTotal }`
+    resultadoTotal = document.getElementById('resultado-total');
+    valorResultadoTotal = (resultadoCapital + resultadoJuros + resultadoMulta).toFixed(2);
+    resultadoTotal.innerHTML = `R$ ${ valorResultadoTotal }`;
 });
+
+const btnLimpar = document.getElementById('btn-limpar');
+
+btnLimpar.addEventListener('click', () => {
+
+    resetarResultado = document.querySelectorAll('[data-resultado]');
+    resetarResultado.forEach(element => {
+        element.innerHTML = 'R$ 0,00'
+    });
+
+    resetarInputs = document.querySelectorAll('[data-input]');
+    resetarInputs.forEach(element => {
+        element.value = '0'
+    })
+})

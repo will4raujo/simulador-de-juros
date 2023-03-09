@@ -28,25 +28,25 @@
         <span>Capital (C):</span>
         <br>
         <label>R$</label>
-        <input type="number" value="0" step=".01" id="capital" name="capital" placeholder="0,00">
+        <input type="number" value="0" step=".01" id="capital" name="capital" placeholder="0,00" data-input="capital">
         <br>
         <span>Taxa de Juros (i):</span>
         <br>
         <label>%</label>
-        <input type="number" value="0.00" step=".01" id="taxajuros" name="taxajuros" placeholder="0,00">
+        <input type="number" value="0.00" step=".01" id="taxajuros" name="taxajuros" placeholder="0,00" data-input="taxajuros">
         <br>
         <span>Multa:</span>
         <br>
         <label>R$</label>
-        <input type="number" value="0.00" step=".01" id="multa" name="multa" placeholder="0,00">
+        <input type="number" value="0.00" step=".01" id="multa" name="multa" placeholder="0,00" data-input="multa">
         <br>
         <span>Prazo (t):</span>
         <br>
-        <input type="number" value="0" step=".01" id="prazo" name="prazo" placeholder="0,00">
+        <input type="number" value="0" step=".01" id="prazo" name="prazo" placeholder="0,00" data-input="prazo">
         <br>
         <span>carência:</span>
         <br>
-        <input type="number" value="0" id="carencia" name="carencia" placeholder="0">
+        <input type="number" value="0" id="carencia" name="carencia" placeholder="0" data-input="carencia">
     </fieldset>
     <br>
     <button id="btn-calcular">Calcular</button>
@@ -55,13 +55,13 @@
     <fieldset>
         <legend>Resultado</legend>
         <span>Capital Inicial</span>
-        <div id="resultado-capital" data-resultado="capital">0,00</div>
+        <div id="resultado-capital" data-resultado="capital">R$ 0,00</div>
         <span>Juros</span>
-        <div id="resultado-juros" data-resultado="juros">0,00</div>
+        <div id="resultado-juros" data-resultado="juros">R$ 0,00</div>
         <span>Multa</span>
-        <div id="resultado-multa" data-resultado="multa">0,00</div>
+        <div id="resultado-multa" data-resultado="multa">R$ 0,00</div>
         <span>Total</span>
-        <div id="resultado-total" data-resultado="total">0,00</div>
+        <div id="resultado-total" data-resultado="total">R$ 0,00</div>
     </fieldset>
     <script src="js/main.js"></script>
 </body>
