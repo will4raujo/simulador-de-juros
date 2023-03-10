@@ -4,7 +4,12 @@
 :root {
     --font-family: 'Montserrat', 'sans-serif';
     --bg-color: #F1EEE9;
-    --primary-color: #15133C ;
+    --primary-color: #15133C;
+    --secondary-color: #EC994B;
+}
+
+html{
+    margin: 0;
 }
 
 body{
@@ -17,10 +22,9 @@ body{
 
 h1{
     text-transform: uppercase;
-    
     background: linear-gradient(to right,#F1EEE9, #73777B, #F1EEE9);
     text-align: center;
-    height: 50px;
+    height: 100px;
     padding: 20px 0 10px 0;
 
 }
@@ -42,28 +46,58 @@ h1{
 }
 
 .section1{ 
-    margin: 0 0 0 50px;
+    margin: 10px
+}
+
+.col { 
+    display: flex;
+    flex-direction: column;
+    width: 61%;
 }
 
 .inputs {
-    display: flex;
-    width: 40%;
     text-align: left;
+
 }
-.inputs legend { 
+legend { 
     text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--secondary-color);
 }
-.inputs fieldset{
+fieldset{
     border: var(--primary-color) solid 1px;
     border-radius: 5px;
-    width: 600px;
+}
+
+.row {
+    margin: 5px 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.cifrao { 
+    display: inline-block;
+    border: solid var(--primary-color) 1px;
+    border-radius: 5px;
+    padding: 3px 7px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.cifrao:nth-child(4) {
+    padding: 3px 9px;
 }
 
 input[type=number]{
     border-radius: 2px;
     box-shadow: 0 0 1px var(--primary-color);
     border: var(--bg-color) solid 1px;
-    padding: 4px 5px;
+    padding: 5px 5px;
     margin: 2px;
     width: 120px;
     text-align: right;
@@ -72,6 +106,11 @@ input[type=number]{
     color: var(--primary-color);
 }
 
+.time-inputs {
+    display: flex;
+    justify-content: space-between;
+    width: 61%;
+}
 
 #carencia{
     width: 30px;
@@ -80,20 +119,38 @@ input[type=number]{
     width: 30px;
 }
 
+.btns { 
+    display: flex;
+    justify-content: space-between;
+}
+
 button{
     border-radius: 5px;
     text-transform: uppercase;
     padding: 5px;
     display: inline-block;
-    margin: 0px 15px;
+    margin: 0px 20px;
+    width: 110px;
+    color: var(--bg-color);
+    background: var(--primary-color);
+    font-size: 16px;
 }
 
-
-.cifrao { 
-    display: inline-block;
-    border: solid var(--primary-color) 1px;
+.results {
+    display: block;
+    background: var(--primary-color);
     border-radius: 5px;
-    padding: 2px 5px;
-    background-color: var(--primary-color);
+    height: 266px;
+}
+
+.results fieldset {
+
     color: var(--bg-color);
+    border: var(--bg-color) solid 1px;
+    margin: 15px;
+}
+.results div { 
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
 }

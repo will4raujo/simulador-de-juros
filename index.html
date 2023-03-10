@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador de Juros</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/dropdown.css">
 </head>
 <body>
     <header>
@@ -14,24 +13,6 @@
     </header>
     <section class="section1">
         <section>
-            <div class="container">
-                <span class="choose">Choose Gender</span>
-            
-                <div class="dropdown">
-                    <div class="select">
-                    <span>Select Gender</span>
-                    <i class="fa fa-chevron-left"></i>
-                    </div>
-                    <input type="hidden" name="gender">
-                    <ul class="dropdown-menu">
-                    <li id="male">Male</li>
-                    <li id="female">Female</li>
-                    </ul>
-                </div>
-            
-            <span class="msg"></span>
-            </div>
-
             <div>        
                 <span>Escolha o tipo do juros desejada:</span>
                 <select class="selects" id="tipo-juros">
@@ -53,52 +34,60 @@
             <div class="inputs">
                 <fieldset>
                     <legend>Preencha os campos</legend>
-                    <div>
-                        <span>Capital (C):</span>
-                        <br>
-                        <div class="cifrao">R$</div>
-                        <input type="number" value="0.00" id="capital" name="capital" placeholder="0,00" data-input="capital" data-moeda="capital">
+                    <div class="col">
+                        <div class="row">
+                            <span>Capital (C):</span>
+                            <br>
+                            <div class="cifrao">R$</div>
+                            <input type="number" value="0.00" id="capital" name="capital" placeholder="0,00" data-input="capital" data-moeda="capital">
+                        </div>
+                        <div class="row">
+                            <span>Taxa de Juros (i):</span>
+                            <br>
+                            <input type="number" value="0.00" step=".01" id="taxajuros" name="taxajuros" placeholder="0,00" data-input="taxajuros" data-moeda="taxajuros">
+                            <div class="cifrao">%</div>
+                        </div>
+                        <div class="row">
+                            <span>Multa:</span>
+                            <br>
+                            <div class="cifrao">R$</div>
+                            <input type="number" value="0.00" step=".01" id="multa" name="multa" placeholder="0,00" data-input="multa" data-moeda="multa">
+                        </div>
                     </div>
-                    <div>
-                        <span>Taxa de Juros (i):</span>
-                        <br>
-                        <div class="cifrao">%</div>
-                        <input type="number" value="0.00" step=".01" id="taxajuros" name="taxajuros" placeholder="0,00" data-input="taxajuros" data-moeda="taxajuros">
-                    </div>
-                    <div>
-                        <span>Multa:</span>
-                        <br>
-                        <div class="cifrao">R$</div>
-                        <input type="number" value="0.00" step=".01" id="multa" name="multa" placeholder="0,00" data-input="multa" data-moeda="multa">
-                    </div>
-                    <div>
-                        <span>Prazo (t):</span>
-                        <br>
-                        <input type="number" value="0" step=".01" id="prazo" name="prazo" placeholder="0,00" data-input="prazo">
-                    </div>
-                    <div>
-                        <span>Carência:</span>
-                        <br>
-                        <input type="number" value="0" id="carencia" name="carencia" placeholder="0" data-input="carencia">
+                    <div class="time-inputs row">
+                        <div>
+                            <span>Prazo (t):</span>
+                            <br>
+                            <input type="number" value="0" step=".01" id="prazo" name="prazo" placeholder="0,00" data-input="prazo">
+                        </div>
+                        <div>
+                            <span>Carência:</span>
+                            <br>
+                            <input type="number" value="0" id="carencia" name="carencia" placeholder="0" data-input="carencia">
+                        </div>
                     </div>
                 </fieldset>
             </div>
         </section>
         <br>
-        <button id="btn-calcular">Calcular</button>
-        <button id="btn-limpar">Limpar</button>
+        <div class="btns">
+            <button id="btn-calcular">Calcular</button>
+            <button id="btn-limpar">Limpar</button>
+        </div>
         <br><br>
-        <fieldset>
-            <legend>Resultado</legend>
-            <span>Capital Inicial</span>
-            <div id="resultado-capital" data-resultado="capital">R$ 0,00</div>
-            <span>Juros</span>
-            <div id="resultado-juros" data-resultado="juros">R$ 0,00</div>
-            <span>Multa</span>
-            <div id="resultado-multa" data-resultado="multa">R$ 0,00</div>
-            <span>Total</span>
-            <div id="resultado-total" data-resultado="total">R$ 0,00</div>
-        </fieldset>
+        <div class="results">
+            <fieldset>
+                <legend>Resultado</legend>
+                <span>Capital Inicial</span>
+                <div id="resultado-capital" data-resultado="capital">R$ 0,00</div>
+                <span>Juros</span>
+                <div id="resultado-juros" data-resultado="juros">R$ 0,00</div>
+                <span>Multa</span>
+                <div id="resultado-multa" data-resultado="multa">R$ 0,00</div>
+                <span>Total</span>
+                <div id="resultado-total" data-resultado="total">R$ 0,00</div>
+            </fieldset>
+        </div>
     </section>
     <script src="js/main.js"></script>
     <script src="js/mask.js"></script>
