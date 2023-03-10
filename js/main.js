@@ -16,10 +16,13 @@ btnCalcular.addEventListener('click', () => {
     resultadoJuros = document.getElementById('resultado-juros');
 
     let inpCapital = parseFloat(document.getElementById('capital').value);
+    console.log(inpCapital)
+
     resultadoCapital.innerHTML = `R$ ${(inpCapital).toFixed(2)}`;
 
     let inpMulta = parseFloat(document.getElementById('multa').value)
     resultadoMulta.innerHTML = `R$ ${(inpMulta).toFixed(2)}`
+    console.log(inpMulta)
 
     let inpJuros = parseFloat(document.getElementById('taxajuros').value);
     let inpPrazo = parseFloat(document.getElementById('prazo').value);

@@ -1,7 +1,8 @@
-/*@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 
 :root {
-    --font-family: 'Montserrat', sans-serif;
+    --font-family: 'Montserrat', 'sans-serif';
     --bg-color: #F1EEE9;
     --primary-color: #15133C ;
 }
@@ -10,33 +11,67 @@ body{
   background-color: var(--bg-color);
   color: var(--primary-color);
   font-family: var(--font-family);
+  font-size: 18px;
+  margin: 0;
 }
 
 h1{
     text-transform: uppercase;
+    
+    background: linear-gradient(to right,#F1EEE9, #73777B, #F1EEE9);
+    text-align: center;
+    height: 50px;
+    padding: 20px 0 10px 0;
+
 }
-fieldset{
-    border: gray solid 1px;
-    border-radius: 5px;
-    width: auto;
+
+.selects{
+    width: 110px;
+    display: inline-block;
+    border-radius: 2px;
+    box-shadow: 0 0 2px var(--primary-color);
+    transition: all .5s ease;
+    position: relative;
+    font-size: 16px;
+    color: var(--primary-color);
+    height: 100%;
+    text-align: left;
+    margin: 10px;
+    cursor: pointer;
+    padding: 2px 5px;
 }
-select{
+
+.section1{ 
+    margin: 0 0 0 50px;
+}
+
+.inputs {
+    display: flex;
+    width: 40%;
+    text-align: left;
+}
+.inputs legend { 
+    text-align: center;
+}
+.inputs fieldset{
+    border: var(--primary-color) solid 1px;
     border-radius: 5px;
-    text-transform: uppercase;
-    border: solid 1px gray;
+    width: 600px;
 }
 
 input[type=number]{
-    border-radius: 5px;
-    border: solid 1px gray;
-    padding: 2px;
+    border-radius: 2px;
+    box-shadow: 0 0 1px var(--primary-color);
+    border: var(--bg-color) solid 1px;
+    padding: 4px 5px;
     margin: 2px;
-    width: 50px;
+    width: 120px;
     text-align: right;
+    font-size: 16px;
+    margin: 10px 5px;
+    color: var(--primary-color);
 }
-input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
+
 
 #carencia{
     width: 30px;
@@ -53,9 +88,12 @@ button{
     margin: 0px 15px;
 }
 
-label{
-    border: solid gray 1px;
+
+.cifrao { 
+    display: inline-block;
+    border: solid var(--primary-color) 1px;
     border-radius: 5px;
-    background-color: black;
-    margin: 0;
+    padding: 2px 5px;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
 }

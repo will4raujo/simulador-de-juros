@@ -6,63 +6,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador de Juros</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dropdown.css">
 </head>
 <body>
-    <h1>Simulador de Juros</h1>
-    
-    <span>Selecione o tipo do juros:</span>
-    <select id="tipo-juros">
-        <option value="simples">Simples</option>
-        <option value="composto">Composto</option>
-    </select>
-    <br><br>
-    <span>Defina o tipo da taxa de juros:</span>
-    <select id="opcoes-taxas">
-        <option value="ad">Ao Dia</option>
-        <option value="am">Ao Mês.</option>
-        <option value="aa">Ao Ano</option>
-    </select>
-    <br><br>
-    <fieldset>
-        <legend>Preencha os campos</legend>
-        <span>Capital (C):</span>
+    <header>
+        <h1>Simulador de Juros</h1>
+    </header>
+    <section class="section1">
+        <section>
+            <div class="container">
+                <span class="choose">Choose Gender</span>
+            
+                <div class="dropdown">
+                    <div class="select">
+                    <span>Select Gender</span>
+                    <i class="fa fa-chevron-left"></i>
+                    </div>
+                    <input type="hidden" name="gender">
+                    <ul class="dropdown-menu">
+                    <li id="male">Male</li>
+                    <li id="female">Female</li>
+                    </ul>
+                </div>
+            
+            <span class="msg"></span>
+            </div>
+
+            <div>        
+                <span>Escolha o tipo do juros desejada:</span>
+                <select class="selects" id="tipo-juros">
+                    <option value="simples">Simples</option>
+                    <option value="composto" selected>Composto</option>
+                </select>
+            </div>
+            <div>
+                <span>Defina o tipo da taxa de juros:</span>
+                <select  class="selects" id="opcoes-taxas">
+                    <option value="ad">Ao Dia</option>
+                    <option value="am" selected="selected">Ao Mês</option>
+                    <option value="aa">Ao Ano</option>
+                </select>
+            </div>
+        </section>
+        <br><br>
+        <section>
+            <div class="inputs">
+                <fieldset>
+                    <legend>Preencha os campos</legend>
+                    <div>
+                        <span>Capital (C):</span>
+                        <br>
+                        <div class="cifrao">R$</div>
+                        <input type="number" value="0.00" id="capital" name="capital" placeholder="0,00" data-input="capital" data-moeda="capital">
+                    </div>
+                    <div>
+                        <span>Taxa de Juros (i):</span>
+                        <br>
+                        <div class="cifrao">%</div>
+                        <input type="number" value="0.00" step=".01" id="taxajuros" name="taxajuros" placeholder="0,00" data-input="taxajuros" data-moeda="taxajuros">
+                    </div>
+                    <div>
+                        <span>Multa:</span>
+                        <br>
+                        <div class="cifrao">R$</div>
+                        <input type="number" value="0.00" step=".01" id="multa" name="multa" placeholder="0,00" data-input="multa" data-moeda="multa">
+                    </div>
+                    <div>
+                        <span>Prazo (t):</span>
+                        <br>
+                        <input type="number" value="0" step=".01" id="prazo" name="prazo" placeholder="0,00" data-input="prazo">
+                    </div>
+                    <div>
+                        <span>Carência:</span>
+                        <br>
+                        <input type="number" value="0" id="carencia" name="carencia" placeholder="0" data-input="carencia">
+                    </div>
+                </fieldset>
+            </div>
+        </section>
         <br>
-        <label>R$</label>
-        <input type="number" value="0" step=".01" id="capital" name="capital" placeholder="0,00" data-input="capital">
-        <br>
-        <span>Taxa de Juros (i):</span>
-        <br>
-        <label>%</label>
-        <input type="number" value="0.00" step=".01" id="taxajuros" name="taxajuros" placeholder="0,00" data-input="taxajuros">
-        <br>
-        <span>Multa:</span>
-        <br>
-        <label>R$</label>
-        <input type="number" value="0.00" step=".01" id="multa" name="multa" placeholder="0,00" data-input="multa">
-        <br>
-        <span>Prazo (t):</span>
-        <br>
-        <input type="number" value="0" step=".01" id="prazo" name="prazo" placeholder="0,00" data-input="prazo">
-        <br>
-        <span>carência:</span>
-        <br>
-        <input type="number" value="0" id="carencia" name="carencia" placeholder="0" data-input="carencia">
-    </fieldset>
-    <br>
-    <button id="btn-calcular">Calcular</button>
-    <button id="btn-limpar">Limpar</button>
-    <br><br>
-    <fieldset>
-        <legend>Resultado</legend>
-        <span>Capital Inicial</span>
-        <div id="resultado-capital" data-resultado="capital">R$ 0,00</div>
-        <span>Juros</span>
-        <div id="resultado-juros" data-resultado="juros">R$ 0,00</div>
-        <span>Multa</span>
-        <div id="resultado-multa" data-resultado="multa">R$ 0,00</div>
-        <span>Total</span>
-        <div id="resultado-total" data-resultado="total">R$ 0,00</div>
-    </fieldset>
+        <button id="btn-calcular">Calcular</button>
+        <button id="btn-limpar">Limpar</button>
+        <br><br>
+        <fieldset>
+            <legend>Resultado</legend>
+            <span>Capital Inicial</span>
+            <div id="resultado-capital" data-resultado="capital">R$ 0,00</div>
+            <span>Juros</span>
+            <div id="resultado-juros" data-resultado="juros">R$ 0,00</div>
+            <span>Multa</span>
+            <div id="resultado-multa" data-resultado="multa">R$ 0,00</div>
+            <span>Total</span>
+            <div id="resultado-total" data-resultado="total">R$ 0,00</div>
+        </fieldset>
+    </section>
     <script src="js/main.js"></script>
+    <script src="js/mask.js"></script>
+    <script src="js/select.js"></script>
+    
 </body>
 </html>
